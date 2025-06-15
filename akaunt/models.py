@@ -7,7 +7,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)  # Har bir user uchun bitta profil
+    user = models.CharField(max_length=50)  # Har bir user uchun bitta profil
     image = models.ImageField(upload_to='profiles/', blank=True, null=True)  # Profil rasmi
     phone = models.CharField(max_length=20, blank=True)  # Telefon raqami
     address = models.CharField(max_length=255, blank=True)  # Manzil
@@ -16,7 +16,7 @@ class Profile(models.Model):
 
     class Meta:
         verbose_name = 'Profile'
-        ordering = ['user__username']
+        ordering = ['user']
 
     def __str__(self):
         return f" {self.user.username} profili"
