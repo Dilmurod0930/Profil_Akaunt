@@ -5,6 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-
+    {% for profil in akaunt %}
+       <h1>{{profil.name}}</h1>
+       <h3>{{profil.email}}</h3>
+       <h3>{{profil.phone}}</h3>
+       <h3>{{profil.year}}</h3>
+       <h4>{{profil.bio}}</h4>
+       <h4>{{profil.address}}</h4>
+    <br>
+    <hr>
+    {% endfor %}
 </body>
 </html>
