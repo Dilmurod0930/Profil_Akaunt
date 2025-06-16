@@ -1,20 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Profil Sahifasi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .profile-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .profile-content {
+            padding: 25px;
+        }
+
+        .profile-content h2 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .profile-content p {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .profile-image {
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
-    {% for profil in akaunt %}
-       <h1>{{profil.name}}</h1>
-       <h3>{{profil.email}}</h3>
-       <h3>{{profil.phone}}</h3>
-       <h3>{{profil.year}}</h3>
-       <h4>{{profil.bio}}</h4>
-       <h4>{{profil.address}}</h4>
-        <img src="{{ profil.image.url }}">
-    <br>
-    <hr>
-    {% endfor %}
+
+    <div class="main-container">
+        <div class="row g-4">
+            {% for profil in akaunt %}
+            <div class="col-md-6 col-lg-4">
+                <div class="profile-card">
+                    <img src="{{ profil.image.url }}" alt="Profil rasmi" class="profile-image">
+                    <div class="profile-content">
+                        <h2>{{ profil.name }}</h2>
+                        <p><strong>Email:</strong> {{ profil.email }}</p>
+                        <p><strong>Telefon:</strong> {{ profil.phone }}</p>
+                        <p><strong>Tug‘ilgan yil:</strong> {{ profil.year }}</p>
+                        <p><strong>Manzil:</strong> {{ profil.address }}</p>
+                        <p><strong>Bio:</strong> {{ profil.bio }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    {% for profil in akaunt %}-->
+<!--       <h1>{{profil.name}}</h1>-->
+<!--       <h3>{{profil.email}}</h3>-->
+<!--       <h3>{{profil.phone}}</h3>-->
+<!--       <h3>{{profil.year}}</h3>-->
+<!--       <h4>{{profil.bio}}</h4>-->
+<!--       <h4>{{profil.address}}</h4>-->
+<!--        <img src="{{ profil.image.url }}">-->
+<!--    <br>-->
+<!--    <hr>-->
+<!--    {% endfor %}-->
+<!--</body>-->
+<!--</html>-->
