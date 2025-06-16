@@ -4,8 +4,8 @@ from django.db import models
 class  Profil_Model(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    phone = models.IntegerField()
-    year = models.IntegerField()
+    phone = models.CharField(max_length=12)
+    year = models.TextField()
     bio = models.TextField()
     address = models.TextField()
     image = models.ImageField()
