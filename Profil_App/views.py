@@ -19,3 +19,14 @@ def profil_add(request):
         form.save()
         return redirect('profil_lst')
     return render(request, 'akaunt/akaunt_add.html', {'form': form})
+
+
+
+
+def  profil_update(request,  id):
+    profil  =  get_object_or_404(Profil_Model, id=id)
+    form  = Profil_Form(request.POST or None , request.FILES, instance= profil, files=request.FILES )
+    if form.is_valid():
+        form.save()
+        return redirect('profil_lst', id = id)
+    return render(request, 'akaunt/akaunt_update.html', {'form': form})
