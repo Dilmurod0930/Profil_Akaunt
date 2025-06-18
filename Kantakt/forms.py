@@ -23,4 +23,3 @@ class  ContactForm(forms.Form):
         if len(message) < 40:
             raise forms.ValidationError("Message must be at least 40 characters long")
         return message
-    
