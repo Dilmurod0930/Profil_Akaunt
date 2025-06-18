@@ -22,6 +22,7 @@ from django.urls import path,  include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',  include('Profil_App.urls')),
+    path('contakt', include('Kantakt.urls')),
 ]
 
 if  settings.DEBUG:
