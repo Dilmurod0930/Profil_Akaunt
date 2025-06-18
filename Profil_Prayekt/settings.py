@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Profil_App'
+    'Profil_App',
+    'Kantakt',
 ]
 
 MIDDLEWARE = [
