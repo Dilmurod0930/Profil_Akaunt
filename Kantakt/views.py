@@ -11,4 +11,6 @@ def  contact_form(request):
         email = form.cleaned_data['email']
         message = form.cleaned_data['message']
         phone_number = form.cleaned_data['phone_number']
-        return redirect('main.html')
+        print(F"Name: {name} \nEmail: {email} \nPhone_Number: {phone_number} \n  Message: {message}")
+        return redirect('main')
+    return render(request,'contact/contact_form.html',{'form':form})
