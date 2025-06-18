@@ -3,12 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>Add_Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #a8e063, #56ab2f); /* Yashil gradient */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2e7d32;
+        }
+
+        button {
+            background-color: #2e7d32;
+            color: white;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #1b5e20;
+        }
+    </style>
 </head>
 <body>
-        <form method="post"  enctype="multipart/form-data">
+    <div class="form-container">
+        <h2>Yangi Maʼlumot Qo‘shish</h2>
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Ochish</button>
+            <button type="submit" class="btn w-100 mt-3">Ochish</button>
         </form>
+    </div>
+
+    <!-- Bootstrap JS (ixtiyoriy) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
