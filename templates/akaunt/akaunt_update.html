@@ -6,9 +6,10 @@
 </head>
 <body>
     <h1>Bu  Updeate  page  hisoblamadi.</h1>
-        <form method="post",  enctype="multipart/form-data">
+        <form method="post"  enctype="multipart/form-data">
           {% csrf_token %}
           {{form.as_p}}
+            <button type="submit" >Qayta  Yuklash </button>
         </form>
 </body>
 </html>

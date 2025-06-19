@@ -25,11 +25,14 @@ def profil_add(request):
 
 def  profil_update(request,  id):
     profil  =  get_object_or_404(Profil_Model, id=id)
-    form  = Profil_Form(request.POST or None , request.FILES, instance= profil )
-    if form.is_valid():
-        form.save()
-        return redirect('profil_lst', id = id)
-    return render(request, 'akaunt/akaunt_update.html', {'form': form})
+    if request.method == 'POST':
+        form = Profil_Form(request.POST, request.FILES, instance=profil)
+        if form.is_valid():
+            form.save()
+            return redirect('profil_lst')
+    else:
+            form = Profil_Form(instance=profil)
+    return render(request, 'akaunt/akaunt_update.html', {'form': form, 'profil': profil })
 
 
 def  profil_del(request, id):
