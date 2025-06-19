@@ -32,3 +32,9 @@ def  profil_update(request,  id):
     return render(request, 'akaunt/akaunt_update.html', {'form': form})
 
 
+def  profil_del(request, id):
+    profil = get_object_or_404(Profil_Model, id=id)
+    if  request.method == 'POST':
+        profil.delete()
+        return redirect('profil_lst')
+    return render(request, 'akaunt/akaunt_del.html', {'profil': profil})
