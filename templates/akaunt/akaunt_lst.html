@@ -5,7 +5,7 @@
     <title>Profil Sahifasi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -14,7 +14,7 @@
             background-size: cover;
             font-family: 'Segoe UI', sans-serif;
             margin: 0;
-            padding: 0;
+            padding-top: 80px; /* navbardan joy qoldiramiz */
         }
 
         .main-container {
@@ -109,6 +109,27 @@
 </head>
 <body>
 
+    <!-- ✅ Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">🧑 Profil Sahifasi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'main' %}">Bosh sahifa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url  'profil_add' %}">Profil qo‘shish</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ✅ Profil Kartalari -->
     <div class="main-container">
         <div class="row g-4">
             {% for profil in akaunt %}
@@ -124,8 +145,8 @@
                         <p><strong>Bio:</strong> {{ profil.bio }}</p>
 
                         <div class="btn-group">
-                            <a href="{% url 'profil_update'  profil.id%}" class="edit-btn text-decoration-none text-white">✏️ Tahrirlash</a>
-                            <a href="{% url 'profil_del'  profil.id%}" class="delete-btn text-decoration-none text-white">🗑️ O‘chirish</a>
+                            <a href="{% url 'profil_update' profil.id %}" class="edit-btn text-decoration-none text-white">✏️ Tahrirlash</a>
+                            <a href="{% url 'profil_del' profil.id %}" class="delete-btn text-decoration-none text-white">🗑️ O‘chirish</a>
                         </div>
 
                     </div>
@@ -135,36 +156,7 @@
         </div>
     </div>
 
+    <!-- Bootstrap JS (navbar uchun kerak) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--    {% for profil in akaunt %}-->
-<!--       <h1>{{profil.name}}</h1>-->
-<!--       <h3>{{profil.email}}</h3>-->
-<!--       <h3>{{profil.phone}}</h3>-->
-<!--       <h3>{{profil.year}}</h3>-->
-<!--       <h4>{{profil.bio}}</h4>-->
-<!--       <h4>{{profil.address}}</h4>-->
-<!--        <img src="{{ profil.image.url }}">-->
-<!--    <br>-->
-<!--    <hr>-->
-<!--    {% endfor %}-->
-<!--</body>-->
-<!--</html>-->

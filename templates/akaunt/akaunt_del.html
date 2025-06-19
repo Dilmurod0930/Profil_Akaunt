@@ -5,7 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-        <h1>Bu  Delete  Sahifasi</h1>
+        <div class="delete-box">
+        <h3>❗ "{{ object }}" nomli ma'lumotni o‘chirmoqchimisiz?</h3>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger px-4 me-2">✅ Ha, o‘chir</button>
+            <a href="{% url 'main' %}" class="btn btn-cancel px-4">❌ Bekor qilish</a>
+        </form>
+    </div>
 
 </body>
 </html>
